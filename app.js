@@ -77,6 +77,39 @@ const clicarCadastro = botaoCadastro.addEventListener("click", () =>{
     formularioLogin.style.display = "none";
 })
 
+const confirmarLogin = botaoConfirmar.addEventListener("click", () => {
+    let usuario = document.getElementById("usuario").value;
+    let senha = document.getElementById("senha").value;
+
+    let i = 0;
+    let loginSucesso = false; 
+
+    while (i < listaCadastrados.length) {
+        if (usuario === listaCadastrados[i] && senha === listaSenhas[i]) {
+            loginSucesso = true;
+            break;
+        }
+        i++;
+    }
+
+    if (loginSucesso) {
+        alert(`Login realizado com sucesso.`);
+        textoTela("h1", `BODY <span>WHISPER</span>`);
+        textoTela("sub-titulo", "Camisa inteligente com monitoramento de sinais vitais em tempo real!");
+        textoTela("paragrafo", `Bem vindo, ${usuario}! O Body Whisper é uma camisa inteligente desenvolvida com Arduino e sensores de alta precisão que monitora sinais vitais em tempo real, como frequência cardíaca, temperatura e oxigenação do sangue, gerando alertas automáticos em situações de risco. O projeto foi criado pensando principalmente em idosos com alzhaimer e seus cuidadores, visando resolver o problema crítico de monitoramento 24 horas, já que muitas vezes os sinais de emergência são percebidos tarde demais.`)
+        botaoLogin.style.display = "none";
+        botaoCadastro.style.display = "none";
+        formularioLogin.style.display = "none";
+        botaoSlidePrev.style.display = "inline";
+        botaoSlideNext.style.display = "inline";
+        quiz.style.display = "block";
+        initializeSlider()
+        console.log("Login correto!");
+    }else{
+        alert("Senha ou Login incorretos! Tente Novamente!");
+    }
+});
+
 const confirmarCadastro = botaoConfirmarCadastro.addEventListener("click", ()=>{
     let addUsuario = document.getElementById("addUsuario").value;
     let addSenha = document.getElementById("addSenha").value;
