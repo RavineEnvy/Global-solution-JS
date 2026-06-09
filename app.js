@@ -1,5 +1,9 @@
+//Lista do Cadastros e Senhas para o login
+
 let listaCadastrados = [];
 let listaSenhas = [];
+
+//Consts da maioria dos botões
 
 const botaoLogin = document.getElementById("btn-login");
 const botaoCadastro = document.getElementById("btn-cadastro");
@@ -11,6 +15,46 @@ const botaoSlidePrev = document.getElementById("btn-slide-prev");
 const botaoSlideNext = document.getElementById("btn-slide-next");
 const slides = document.querySelectorAll(".slides img");
 const quiz = document.getElementById("quiz");
+
+//Botão para mudar Tema
+
+let menuAberto = false;
+
+document.getElementById("btn-tema").addEventListener("click", () => {
+    const menu = document.getElementById("tema-menu");
+    if (menuAberto) {
+        menu.style.display = "none";
+        menuAberto = false;
+    } else {
+        menu.style.display = "block";
+        menuAberto = true;
+    }
+});
+
+document.querySelectorAll(".btn-tema-opcao").forEach(btn => {
+    btn.addEventListener("click", () => aplicarTema(btn.aplicarTema(btn.id)));
+});
+
+document.addEventListener("click", (e) => {
+    const switcher = document.querySelector(".trocarTema");
+    if (!switcher.contains(e.target)) {
+        document.getElementById("tema-menu").style.display = "none";
+        menuAberto = false;
+    }
+});
+
+function aplicarTema(tema) {
+    document.body.classList.remove("tema-roxo", "tema-verde", "tema-azul");
+    document.body.classList.add(`tema-${tema}`);
+    document.getElementById("tema-menu").style.display = "none";
+    menuAberto = false;
+    localStorage.setItem("temaSalvo", tema);
+}
+
+const temaSalvo = localStorage.getItem("temaSalvo") || "roxo";
+aplicarTema(temaSalvo);
+
+//SlideShow e botão para avançar as imagens
 
 let slideIndex = 0;
 let intervaloID = null;
@@ -47,10 +91,14 @@ function nextSlide(){
     showSlide(slideIndex);
 }
 
+//Function para Texto na tela
+
 function textoTela(id, texto){
     let campo = document.getElementById(id);
     campo.innerHTML = texto;
 }
+
+//Function para clicar botão
 
 function clicarBotao(variavel, id, texto){
     variavel.addEventListener("click", () => {
@@ -59,6 +107,8 @@ function clicarBotao(variavel, id, texto){
 }
 
 clicarBotao(botaoCadastro, "sub-titulo", "Cadastro");
+
+//As funcionalidades ao clicar os botões específicos
 
 const clicarLogin = botaoLogin.addEventListener("click", () =>{
     textoTela("h1", `BODY <span>WHISPER</span>`);
@@ -110,27 +160,29 @@ const confirmarLogin = botaoConfirmar.addEventListener("click", () => {
     }
 });
 
-const confirmarCadastro = botaoConfirmarCadastro.addEventListener("click", ()=>{
-    let addUsuario = document.getElementById("addUsuario").value;
-    let addSenha = document.getElementById("addSenha").value;
-    console.log(addUsuario);
+    const confirmarCadastro = botaoConfirmarCadastro.addEventListener("click", ()=>{
+        let addUsuario = document.getElementById("addUsuario").value;
+        let addSenha = document.getElementById("addSenha").value;
+        console.log(addUsuario);
 
-    if(addSenha == ""){
-        alert("Preencha com uma senha!");
-        return;
-    }else if(addUsuario == ""){
-        alert("Escolha um login!")
-    }else{
-        textoTela("h1", `Bem vindo, ${addUsuario}!`);
-        textoTela("sub-titulo", "Cadastro realizado com sucesso!");
-        formularioCadastro.style.display = "none";
-        listaCadastrados.push(addUsuario);
-        listaSenhas.push(addSenha);
-        console.log(listaCadastrados);
-        console.log(listaSenhas)
-        return;
-    }
+        if(addSenha == ""){
+            alert("Preencha com uma senha!");
+            return;
+        }else if(addUsuario == ""){
+            alert("Escolha um login!")
+        }else{
+            textoTela("h1", `Bem vindo, ${addUsuario}!`);
+            textoTela("sub-titulo", "Cadastro realizado com sucesso!");
+            formularioCadastro.style.display = "none";
+            listaCadastrados.push(addUsuario);
+            listaSenhas.push(addSenha);
+            console.log(listaCadastrados);
+            console.log(listaSenhas)
+            return;
+        }
 })
+
+//Lista de perguntas do Quiz (Usei IA para dar idéis das perguntas do Quiz)
 
 const perguntas = [
   {pergunta: "Qual é o protótipo do Body Whisper?", opcoes: ["Uma camisa.", "Um bracelete."], correta: 0},
@@ -146,11 +198,15 @@ const perguntas = [
 
 const respostas = new Array(perguntas.length).fill(null);
 
+//Consts para botões do Quiz
+
 const quizContainer = document.getElementById("quiz-container");
 const quizResultado = document.getElementById("quiz-resultado");
 const quizPlacar = document.getElementById("quiz-placar");
 const btnFinalizar = document.getElementById("btn-finalizar-quiz");
 const btnRefazer = document.getElementById("btn-refazer");
+
+//Funciton para renderizar o Quiz na tela
 
 function renderizarQuiz() {
   quizContainer.innerHTML = "";
@@ -182,6 +238,8 @@ function renderizarQuiz() {
     quizContainer.appendChild(secao);
   });
 }
+
+//Function para validar se as respostas estão corretas ou erradas.
 
 function selecionarResposta(indexPergunta, indexOpcao, secao) {
   respostas[indexPergunta] = indexOpcao;
@@ -217,3 +275,5 @@ btnFinalizar.addEventListener("click", () => {
 btnRefazer.addEventListener("click", renderizarQuiz);
 
 renderizarQuiz();
+
+//Para o Quiz, foi solicitado ajuda da IA Claude, pois haviam erros de lógica que não permitiam os botões funcionarem.

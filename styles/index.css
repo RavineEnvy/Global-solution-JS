@@ -1,10 +1,10 @@
-* {
+*{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-body {
+body{
     background-color: #1c1c1c;
     color: white;
     font-family: Arial, sans-serif;
@@ -38,7 +38,7 @@ button{
 }
 
 button:hover{
-    background-color: #7C3AED;
+    background-color: var(--tema-accent, #7C3AED);
     color: rgb(230, 230, 230);
 }
 
@@ -115,8 +115,7 @@ body h1{
 
 h1 span{
     color: transparent;
-    -webkit-text-stroke: 3px #A855F7
-;
+    -webkit-text-stroke: 3px var(--tema-span, #A855F7);
 }
 
 #form-login{
@@ -139,29 +138,93 @@ h1 span{
     flex-direction: column;
 }
 
-.btn-opcao {
+.btn-opcao{
   display: block;
   width: 100%;
-  margin: 6px 0;
+  margin: 0.45rem 0;
   text-align: left;
   cursor: pointer;
 }
 
-.opcao-correta {
-  background-color: #22c55e;
-  color: white ;
+.opcao-correta{
+    background-color: #22c55e;
+    color: white;
 }
 
-.opcao-errada {
+.opcao-errada{
   background-color: #ef4444 ;
   color: white ;
 }
 
-.opcao-neutra {
+.opcao-neutra{
   background-color: #555 ;
   color: #aaa ;
 }
 
-#quiz-resultado {
-  margin-top: 30px;
+#quiz-resultado{
+  margin-top: 2rem;
+}
+
+.trocarTema{
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 999;
+}
+
+.btn-tema{
+    background-color: #2a2a2a;
+    color: white;
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 0.4rem 1rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.btn-tema:hover{
+    background-color: #7C3AED;
+}
+
+.tema-menu{
+    position: absolute;
+    right: 0;
+    top: 110%;
+    background-color: #2a2a2a;
+    border: 1px solid white;
+    border-radius: 8px;
+    min-width: 20rem;
+}
+
+.btn-tema-opcao{
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    color: white;
+    border: none;
+    border-radius: 0;
+    padding: 10px 14px;
+    margin: 0;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.btn-tema-opcao:hover{
+    background-color: var(--tema-accent);
+    color: white;
+}
+
+body.tema-roxo{
+    --tema-accent: #7C3AED;
+    --tema-span: #A855F7;
+}
+body.tema-verde{
+    --tema-accent: #059669;
+    --tema-span: #34D399;
+}
+body.tema-azul{
+    --tema-accent: #1D4ED8;
+    --tema-span: #60A5FA;
 }

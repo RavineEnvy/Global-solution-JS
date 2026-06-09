@@ -63,3 +63,13 @@ btnFinalizar.addEventListener("click", () => {
   quizResultado.style.display = "block";
   btnFinalizar.style.display  = "none";
 });
+
+Também foi usado a IA para poder validar os clicks dentro ou fora de um container (pois eu não conhecia o "!switcher.contains(event.target);"), o código que foi retornado foi este a seguir:
+
+document.addEventListener("click", (e) => {
+    const switcher = document.querySelector(".trocarTema");
+    if (!switcher.contains(e.target)) {
+        document.getElementById("tema-menu").style.display = "none";
+        menuAberto = false;
+    }
+});

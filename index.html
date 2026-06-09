@@ -14,6 +14,14 @@
     <header>
         <h1 id="h1">BODY <span>WHISPER</span></h1>
         <h2 id="sub-titulo">Camisa inteligente com monitoramento de sinais vitais em tempo real!</h2>
+        <div class="trocarTema">
+            <button id="btn-tema" class="btn-tema" type="button">Tema</button>
+            <div id="tema-menu" class="tema-menu" style="display:none;">
+                <button onclick="aplicarTema('roxo')" class="btn-tema-opcao">Roxo</button>
+                <button onclick="aplicarTema('verde')" class="btn-tema-opcao">Verde</button>
+                <button onclick="aplicarTema('azul')" class="btn-tema-opcao">Azul</button>
+            </div>
+        </div>
         <nav class="nav-btn">
             <button id="btn-login" class="btn"  type="button">Login</button>
             <button id="btn-cadastro" class="btn" type="button">Cadastre-se</button>
