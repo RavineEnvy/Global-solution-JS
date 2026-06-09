@@ -76,3 +76,25 @@ const clicarCadastro = botaoCadastro.addEventListener("click", () =>{
     formularioCadastro.style.display = "block";
     formularioLogin.style.display = "none";
 })
+
+const confirmarCadastro = botaoConfirmarCadastro.addEventListener("click", ()=>{
+    let addUsuario = document.getElementById("addUsuario").value;
+    let addSenha = document.getElementById("addSenha").value;
+    console.log(addUsuario);
+
+    if(addSenha == ""){
+        alert("Preencha com uma senha!");
+        return;
+    }else if(addUsuario == ""){
+        alert("Escolha um login!")
+    }else{
+        textoTela("h1", `Bem vindo, ${addUsuario}!`);
+        textoTela("sub-titulo", "Cadastro realizado com sucesso!");
+        formularioCadastro.style.display = "none";
+        listaCadastrados.push(addUsuario);
+        listaSenhas.push(addSenha);
+        console.log(listaCadastrados);
+        console.log(listaSenhas)
+        return;
+    }
+})
