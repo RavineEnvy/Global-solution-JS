@@ -131,3 +131,15 @@ const confirmarCadastro = botaoConfirmarCadastro.addEventListener("click", ()=>{
         return;
     }
 })
+
+const perguntas = [
+  {pergunta: "Qual é o protótipo do Body Whisper?", opcoes: ["Uma camisa.", "Um bracelete."], correta: 0},
+  {pergunta: "O Body Whisper foi feito para ajudar quem?", opcoes: ["Crianças.", "Idosos."], correta: 1},
+  {pergunta: "Qual dos dados o Body Whisper NÃO mede?", opcoes: ["Insulina.", "Oxigenação do Sangue."], correta: 0},
+  {pergunta: "Qual tecnologia é usada no protótipo do Body Whisper?", opcoes: ["Arduino.", "Raspberry Pi."], correta: 0},
+  {pergunta: "O Body Whisper monitora sinais vitais em tempo real?", opcoes: ["Não.", "Sim."], correta: 1},
+  {pergunta: "O Body Whisper pode monitorar a oxigenação do sangue?", opcoes: ["Sim.", "Não."],correta: 0},
+  {pergunta: "O Body Whisper é uma camisa inteligente?", opcoes: ["Não, é apenas uma camisa comum", "Sim."], correta: 1},
+  {pergunta: "O projeto Body Whisper tem foco em qual área?", opcoes: ["Saúde.", "Entretenimento."], correta: 0},
+  {pergunta: "Qual sensor o Body Whisper utiliza para medir batimentos?", opcoes: ["Sensor cardíaco.", "Sensor de temperatura."], correta: 0},
+  {pergunta: "O Body Whisper envia alertas em situações de risco?", opcoes: ["Não.", "Sim."], correta: 1}];
