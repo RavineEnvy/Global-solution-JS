@@ -57,3 +57,5 @@ function clicarBotao(variavel, id, texto){
         textoTela(id, texto);
     });
 }
+
+clicarBotao(botaoCadastro, "sub-titulo", "Cadastro");
