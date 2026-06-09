@@ -151,3 +151,58 @@ const quizResultado = document.getElementById("quiz-resultado");
 const quizPlacar = document.getElementById("quiz-placar");
 const btnFinalizar = document.getElementById("btn-finalizar-quiz");
 const btnRefazer = document.getElementById("btn-refazer");
+
+function renderizarQuiz() {
+  quizContainer.innerHTML = "";
+  respostas.fill(null);
+  quizResultado.style.display = "none";
+  btnFinalizar.style.display  = "none";
+
+  perguntas.forEach((q, i) => {
+    const secao = document.createElement("section");
+    secao.classList.add("input_quiz");
+    secao.setAttribute("data-index", i);
+
+    const titulo = document.createElement("h2");
+    titulo.textContent = `${i + 1}. ${q.pergunta}`;
+    secao.appendChild(titulo);
+
+    q.opcoes.forEach((opcao, j) => {
+      const p = document.createElement("p");
+
+      const btn = document.createElement("button");
+      btn.textContent = opcao;
+      btn.classList.add("btn-opcao");
+      btn.addEventListener("click", () => selecionarResposta(i, j, secao));
+
+      p.appendChild(btn);
+      secao.appendChild(p);
+    });
+
+    quizContainer.appendChild(secao);
+  });
+}
+
+function selecionarResposta(indexPergunta, indexOpcao, secao) {
+  respostas[indexPergunta] = indexOpcao;
+
+  const botoes = secao.querySelectorAll(".btn-opcao");
+  botoes.forEach((btn, j) => {
+    btn.classList.remove("opcao-correta", "opcao-errada", "opcao-neutra");
+
+    if (j === perguntas[indexPergunta].correta) {
+      btn.classList.add("opcao-correta");
+    } else if (j === indexOpcao) {
+      btn.classList.add("opcao-errada");
+    } else {
+      btn.classList.add("opcao-neutra");
+    }
+
+    btn.disabled = true;
+  });
+
+  const todasRespondidas = respostas.every(r => r !== null);
+  if (todasRespondidas) {
+    btnFinalizar.style.display = "inline-block";
+  }
+}
