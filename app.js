@@ -143,3 +143,11 @@ const perguntas = [
   {pergunta: "O projeto Body Whisper tem foco em qual área?", opcoes: ["Saúde.", "Entretenimento."], correta: 0},
   {pergunta: "Qual sensor o Body Whisper utiliza para medir batimentos?", opcoes: ["Sensor cardíaco.", "Sensor de temperatura."], correta: 0},
   {pergunta: "O Body Whisper envia alertas em situações de risco?", opcoes: ["Não.", "Sim."], correta: 1}];
+
+const respostas = new Array(perguntas.length).fill(null);
+
+const quizContainer = document.getElementById("quiz-container");
+const quizResultado = document.getElementById("quiz-resultado");
+const quizPlacar = document.getElementById("quiz-placar");
+const btnFinalizar = document.getElementById("btn-finalizar-quiz");
+const btnRefazer = document.getElementById("btn-refazer");
