@@ -5,7 +5,6 @@
 }
 
 body{
-    background-color: #1c1c1c;
     color: white;
     font-family: Arial, sans-serif;
     text-align: center;
@@ -219,12 +218,15 @@ h1 span{
 body.tema-roxo{
     --tema-accent: #7C3AED;
     --tema-span: #A855F7;
+    background-color: #1c1c1c;
 }
 body.tema-verde{
     --tema-accent: #059669;
     --tema-span: #34D399;
+    background-color: #0a1f1a;
 }
 body.tema-azul{
     --tema-accent: #1D4ED8;
     --tema-span: #60A5FA;
+    background-color: #0a0f1f;
 }
