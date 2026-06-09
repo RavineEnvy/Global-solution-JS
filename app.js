@@ -59,3 +59,20 @@ function clicarBotao(variavel, id, texto){
 }
 
 clicarBotao(botaoCadastro, "sub-titulo", "Cadastro");
+
+const clicarLogin = botaoLogin.addEventListener("click", () =>{
+    textoTela("h1", `BODY <span>WHISPER</span>`);
+    textoTela("sub-titulo", "Faça seu Login:")
+    botaoLogin.style.display = "none";
+    botaoCadastro.style.display = "block";
+    formularioLogin.style.display = "block";
+    formularioCadastro.style.display ="none"
+})
+
+const clicarCadastro = botaoCadastro.addEventListener("click", () =>{
+    textoTela("sub-titulo", "Faça seu Cadastro:")
+    botaoCadastro.style.display = "none";
+    botaoLogin.style.display = "block";
+    formularioCadastro.style.display = "block";
+    formularioLogin.style.display = "none";
+})
