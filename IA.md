@@ -1,0 +1,1 @@
+<p>Para este projeto, até então, foi usado a IA Claude para ajudar com pequenos erros de lógica e na estrutura do Quiz (principalmente validar os botões do quiz sem deixar de reconhecer os do login).</p>
