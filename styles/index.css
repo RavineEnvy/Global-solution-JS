@@ -1,0 +1,167 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1c1c1c;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: auto;
+}
+
+header h2{
+    margin-bottom: 5rem;
+}
+
+.paragrago{
+    margin: 0 20% 2rem 20%;
+}
+
+input{
+    border-radius: 12px;
+    border: 0px;
+    padding: 2px 15px 2px 15px;
+}
+
+button{
+    margin: auto;
+    margin-bottom: 40px;
+    background-color: white;
+    padding: 2px 15px 2px 15px;
+    border-radius: 12px;
+    transition: background-color 0.3s;
+    transition: color 0.15s;
+    border: 0px;
+}
+
+button:hover{
+    background-color: #7C3AED;
+    color: rgb(230, 230, 230);
+}
+
+.slider{
+    position: relative;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.slider img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+    display: none;
+    margin-bottom: 5rem;
+}
+
+img.displaySlide{
+    display: block;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+.slider button{
+    font-size: 2rem;
+    border-radius: 30px;
+    padding: 0px 1rem 0px 1rem;
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.prev{
+    left: 35%;
+}
+
+.next{
+    right: 35%;
+}
+
+@keyframes fade {
+    from{opacity: .5;}
+    to{opacity: 1;}
+}
+
+.nav-btn{
+    margin-top: 20px;
+}
+
+p{
+    font-size: 1rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+h2{
+    
+    font-weight: lighter;
+    color:#c7c7c7;
+    font-size: 1.04rem;
+    text-transform: uppercase;
+}
+
+body h1{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 5rem;
+    margin-top: 0;
+    color: white;
+}
+
+h1 span{
+    color: transparent;
+    -webkit-text-stroke: 3px #A855F7
+;
+}
+
+#form-login{
+    display: none;
+}
+
+#form-cadastro{
+    display: none;
+}
+
+.quiz{
+    display: none;
+    margin-left: 40%;
+}
+
+.input_quiz{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-direction: column;
+}
+
+.btn-opcao {
+  display: block;
+  width: 100%;
+  margin: 6px 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.opcao-correta {
+  background-color: #22c55e;
+  color: white ;
+}
+
+.opcao-errada {
+  background-color: #ef4444 ;
+  color: white ;
+}
+
+.opcao-neutra {
+  background-color: #555 ;
+  color: #aaa ;
+}
+
+#quiz-resultado {
+  margin-top: 30px;
+}

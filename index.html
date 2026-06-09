@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pr-BR">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/index.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1 id="h1">BODY <span>WHISPER</span></h1>
+        <h2 id="sub-titulo">Camisa inteligente com monitoramento de sinais vitais em tempo real!</h2>
+        <nav class="nav-btn">
+            <button id="btn-login" class="btn"  type="button">Login</button>
+            <button id="btn-cadastro" class="btn" type="button">Cadastre-se</button>
+        </nav>
+    </header>
+    <main>
+        <section id="form-login">
+            <input type="text" id="usuario" placeholder="Usuário">
+            <input type="password" id="senha" placeholder="Senha">
+
+            <button id="btn-confirmar" type="button">Confirmar</button>
+        </section>
+        <section id="form-cadastro">
+            <input type="text" id="addUsuario" placeholder="Defina um usuário">
+            <input type="password" id="addSenha" placeholder="Defina uma Senha">
+            <button id="btn-confirmar-Cadastro" type="button">Confirmar Cadastro</button>
+        </section>
+        <div>
+            <p class="paragrago" id="paragrafo"></p>
+        </div>
+        <div class="slider">
+            <div class="slides">
+                <img  class="slide" src="assets/idosa.png" alt="idosa">
+                <img  class="slide" src="assets/arduino.png" alt="arduino">
+                <img  class="slide" src="assets/camisaTec.png" alt="camisaTec">
+            </div>
+            <button id="btn-slide-prev" class="prev" onclick="prevSlide()">&#10094</button>
+            <button id="btn-slide-next" class="next" onclick="nextSlide()">&#10095</button>
+        </div>
+        <div id="quiz" class="quiz">
+            <div id="quiz-container"></div>
+            <div id="quiz-resultado">
+                <h2 id="quiz-placar"></h2>
+                <button id="btn-refazer">Refazer Quiz</button>
+            </div>
+        <button id="btn-finalizar-quiz" style="display:none;">Ver Resultado</button>
+        </div>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
