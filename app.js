@@ -206,3 +206,14 @@ function selecionarResposta(indexPergunta, indexOpcao, secao) {
     btnFinalizar.style.display = "inline-block";
   }
 }
+
+btnFinalizar.addEventListener("click", () => {
+  const acertos = respostas.filter((r, i) => r === perguntas[i].correta).length;
+  quizPlacar.textContent = `Você acertou ${acertos} de ${perguntas.length} perguntas!`;
+  quizResultado.style.display = "block";
+  btnFinalizar.style.display  = "none";
+});
+
+btnRefazer.addEventListener("click", renderizarQuiz);
+
+renderizarQuiz();
