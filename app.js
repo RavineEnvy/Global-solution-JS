@@ -46,3 +46,14 @@ function nextSlide(){
     slideIndex++;
     showSlide(slideIndex);
 }
+
+function textoTela(id, texto){
+    let campo = document.getElementById(id);
+    campo.innerHTML = texto;
+}
+
+function clicarBotao(variavel, id, texto){
+    variavel.addEventListener("click", () => {
+        textoTela(id, texto);
+    });
+}
